@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 16:38:08 by hrice             #+#    #+#             */
-/*   Updated: 2018/11/28 20:54:04 by hrice            ###   ########.fr       */
+/*   Created: 2018/11/28 18:05:49 by hrice             #+#    #+#             */
+/*   Updated: 2018/11/28 18:49:10 by hrice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlcat(char *dst, const char *src, size_t size)
+char	ft_strsplit(char const *s, char c)
 {
-	size_t	i;
-	size_t	j;
+	char	*fresh;
+	char	**str;
+	int		i;
+	int		j;
 
-	i = 0;
-	while (dst[i] != '\0')
-		i++;
-	j = 0;
-	while (src[j] != '\0' && j < size)
+	if (!s || !c)
+		return (NULL);
+	while (*s)
 	{
-		dst[i + j] = src[j];
+		while (*s[i] != c)
+		{
+			i++;
+			*s++;
+		}
 		j++;
 	}
-	dst[i + j] = '\0';
-	return (i + size);
+
 }

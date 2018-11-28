@@ -6,31 +6,33 @@
 /*   By: hrice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 16:24:34 by hrice             #+#    #+#             */
-/*   Updated: 2018/11/26 20:29:17 by hrice            ###   ########.fr       */
+/*   Updated: 2018/11/28 19:57:26 by hrice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
+int				ft_atoi(const char *str)
 {
-	int	flag;
-	int	res;
+	int			flag;
+	long long	res;
+	int			i;
+	long long	check;
 
-	flag = 1;
+	flag = 0;
 	res = 0;
-	while (*str == ' ' || *str == '\n' || *str == '\t' || *str == '\r' ||
-			*str == '\v' || *str == '\f')
-		str++;
-	if (*str == '-')
+	i = 0;
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\r'
+			|| str[i] == '\v' || str[i] == '\f')
+		i++;
+	if (str[i] == '-')
+		flag = 1;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		flag = -1;
-		str++;
+		check = res;
+		res = (res * 10) + str[i++] - '0';
+		if (res < check)
+		return (flag ? 0 : -1);
 	}
-	else if (*str == '+')
-		str++;
-	while (*str >= '0' && *str <= '9')
-	{
-		res = res * 10 + *str - '0';
-		str++;
-	}
-	return (res * flag);
+	return (flag ? -res : res);
 }

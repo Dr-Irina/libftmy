@@ -6,7 +6,7 @@
 /*   By: hrice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 16:31:51 by hrice             #+#    #+#             */
-/*   Updated: 2018/11/27 17:01:49 by hrice            ###   ########.fr       */
+/*   Updated: 2018/11/28 18:02:49 by hrice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 
 	i = 0;
-	if(!s || !f)
+	if (!s || !f)
 		return (NULL);
 	fresh = ft_strnew(ft_strlen(s));
 	if (!fresh)

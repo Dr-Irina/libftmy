@@ -6,7 +6,7 @@
 /*   By: hrice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 15:49:44 by hrice             #+#    #+#             */
-/*   Updated: 2018/11/28 20:43:40 by hrice            ###   ########.fr       */
+/*   Updated: 2018/11/29 21:31:11 by hrice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ char		*ft_strncat(char *str1, const char *str2, size_t n)
 	j = 0;
 	s1 = (char *)str1;
 	s2 = (char *)str2;
-	if (!str1 || !str2)
-		return (NULL);
 	while (s1[i] != '\0')
 		i++;
 	while (j < n && s2[j] != '\0')

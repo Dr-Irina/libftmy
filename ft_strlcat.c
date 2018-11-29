@@ -6,7 +6,7 @@
 /*   By: hrice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 16:38:08 by hrice             #+#    #+#             */
-/*   Updated: 2018/11/28 20:54:04 by hrice            ###   ########.fr       */
+/*   Updated: 2018/11/29 21:38:14 by hrice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 		j++;
 	}
 	dst[i + j] = '\0';
-	return (i + size);
+	return (j + size);
 }

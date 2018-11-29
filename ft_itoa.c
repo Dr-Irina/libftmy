@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/22 17:36:03 by hrice             #+#    #+#             */
-/*   Updated: 2018/11/29 18:17:35 by hrice            ###   ########.fr       */
+/*   Created: 2018/11/29 12:43:21 by hrice             #+#    #+#             */
+/*   Updated: 2018/11/29 17:58:00 by hrice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(const char *s1, const char *s2)
+#include "libft.h"
+
+char		*ft_itoa(int n)
 {
-	while (*s1 && *s1 == *s2)
+	int		len;
+	int		temp;
+	char	 *str;
+
+	len = (n < 0) ? 2 : 1;
+	temp = n;
+	while (temp /= 10)
+		len++;
+	temp = n;
+	if (!(str = ft_strnew(len)))
+		return (NULL);
+	while(--len != ((n < 0)-1))
 	{
-		s1++;
-		s2++;
+		str[len] = (n < 0) ? '0' - (n%10) : '0' + (n%10);
+		n = n/10;
 	}
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+	if (temp < 0)
+	   str[0] = '-';
+	return (str);
 }

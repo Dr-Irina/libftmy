@@ -6,9 +6,11 @@
 /*   By: hrice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 16:24:34 by hrice             #+#    #+#             */
-/*   Updated: 2018/11/28 19:57:26 by hrice            ###   ########.fr       */
+/*   Updated: 2018/11/30 19:27:07 by hrice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int				ft_atoi(const char *str)
 {
@@ -32,7 +34,7 @@ int				ft_atoi(const char *str)
 		check = res;
 		res = (res * 10) + str[i++] - '0';
 		if (res < check)
-		return (flag ? 0 : -1);
+			return (flag ? 0 : -1);
 	}
 	return (flag ? -res : res);
 }

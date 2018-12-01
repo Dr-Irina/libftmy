@@ -6,7 +6,7 @@
 /*   By: hrice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 19:39:26 by hrice             #+#    #+#             */
-/*   Updated: 2018/11/27 20:14:16 by hrice            ###   ########.fr       */
+/*   Updated: 2018/12/01 20:19:07 by hrice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,7 @@
 
 int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	if (!s1 || !s2)
-		return (0);
-	while (*s1 && *s2 && n)
-	{
-		if (*s1 != *s2)
-			return (0);
-		s1++;
-		s2++;
-		n--;
-	}
-	return (1);
+	if (ft_strncmp(s1, s2, n) == 0)
+		return (1);
+	return (0);
 }

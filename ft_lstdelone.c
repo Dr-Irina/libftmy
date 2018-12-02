@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnequ.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 19:39:26 by hrice             #+#    #+#             */
-/*   Updated: 2018/12/02 21:43:56 by hrice            ###   ########.fr       */
+/*   Created: 2018/12/02 18:20:40 by hrice             #+#    #+#             */
+/*   Updated: 2018/12/02 19:13:50 by hrice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strnequ(char const *s1, char const *s2, size_t n)
+void		ft_lstdelone(t_list **alst, void (*del)(void*, size_t))
 {
-	if (!s1 || !s2)
-		return (0);
-	if (ft_strncmp(s1, s2, n) == 0)
-		return (1);
-	return (0);
+	if (!alst || !del)
+		return ;
+	del((*alst)->content, (*alst)->content_size);
+	free(*alst);
+	*alst = NULL;
+	return ;
 }

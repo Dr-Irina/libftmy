@@ -6,7 +6,7 @@
 /*   By: hrice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 18:05:49 by hrice             #+#    #+#             */
-/*   Updated: 2018/12/01 21:43:50 by hrice            ###   ########.fr       */
+/*   Updated: 2018/12/02 17:23:54 by hrice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int			ft_countword(char *s, char c)
 	count = 0;
 	while (str[count])
 	{
-		if (str[count] != c && (str[count + 1] == c || str[count + 1] == '\0')) 
+		if (str[count] != c && (str[count + 1] == c || str[count + 1] == '\0'))
 			cw++;
 		count++;
 	}

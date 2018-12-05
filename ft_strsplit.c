@@ -6,20 +6,20 @@
 /*   By: hrice <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 18:05:49 by hrice             #+#    #+#             */
-/*   Updated: 2018/12/02 17:23:54 by hrice            ###   ########.fr       */
+/*   Updated: 2018/12/03 17:42:32 by hrice            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t		ft_wordlen(char *str, int st, char c)
+static size_t		ft_wordlen(char *s, int st, char c)
 {
 	size_t			count;
 
 	count = 0;
-	if (!str)
+	if (!s)
 		return (0);
-	while (str[st] && str[st] != c)
+	while (s[st] && s[st] != c)
 	{
 		st++;
 		count++;
@@ -27,7 +27,7 @@ static size_t		ft_wordlen(char *str, int st, char c)
 	return (count);
 }
 
-static int			ft_countword(char *s, char c)
+static int			ft_cw(char *s, char c)
 {
 	int				cw;
 	int				count;
@@ -47,26 +47,26 @@ static int			ft_countword(char *s, char c)
 
 char				**ft_strsplit(char const *s, char c)
 {
-	char			*str;
 	char			**arr;
 	unsigned int	count;
-	int				cw;
 	int				i;
 
-	str = (char *)s;
-	if (!str)
-		return (NULL);
 	count = 0;
-	cw = ft_countword(str, c);
-	if (!(arr = (char**)ft_memalloc(sizeof(char*) * (cw + 1))))
+	if (!s || !(arr = (char**)ft_memalloc(sizeof(s) *\
+					(ft_cw((char *)s, c) + 1))))
 		return (NULL);
 	i = 0;
-	while (i < cw)
+	while (i < ft_cw((char *)s, c))
 	{
-		while (str[count] && str[count] == c)
+		while (s[count] && s[count] == c)
 			count++;
-		arr[i] = ft_strsub(str, count, ft_wordlen(str, count, c));
-		while (str[count] && str[count] != c)
+		if (!(arr[i] = ft_strsub(s, count, ft_wordlen((char *)s, count, c))))
+		{
+			while (i--)
+				free(arr[i]);
+			free(arr);
+		}
+		while (s[count] && s[count] != c)
 			count++;
 		i++;
 	}
